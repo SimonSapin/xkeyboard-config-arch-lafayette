@@ -448,6 +448,7 @@
   bepo            fr: French (Bepo, ergonomic, Dvorak way)
   bepo_latin9     fr: French (Bepo, ergonomic, Dvorak way, Latin-9 only)
   dvorak          fr: French (Dvorak)
+  lafayette       fr: French (Lafayette)
   mac             fr: French (Macintosh)
   bre             fr: French (Breton)
   oci             fr: Occitan

@@ -13,8 +13,10 @@ makedepends=('intltool' 'xorg-xkbcomp')
 provides=('xkbdata')
 replaces=('xkbdata')
 conflicts=('xkbdata')
-source=(http://xorg.freedesktop.org/archive/individual/data/${pkgname}/${pkgname}-${pkgver}.tar.bz2)
-sha256sums=('1e8a1f212c96b7f71ca0b05da361cac1816d27baae1d8e03e7b53049b58d1d58')
+source=(http://xorg.freedesktop.org/archive/individual/data/${pkgname}/${pkgname}-${pkgver}.tar.bz2
+        lafayette.patch)
+sha256sums=('1e8a1f212c96b7f71ca0b05da361cac1816d27baae1d8e03e7b53049b58d1d58'
+            'c290a6676fb35947546402d8a3cdc8cdca3209347dff546085d1cf0855a4f617')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
@@ -23,9 +25,10 @@ build() {
       --with-xkb-rules-symlink=xorg \
       --enable-compat-rules=yes
   make
+  patch -Np3 -i ../../lafayette.patch
  }
- 
- package() { 
+
+ package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
 
   make DESTDIR="${pkgdir}" install
